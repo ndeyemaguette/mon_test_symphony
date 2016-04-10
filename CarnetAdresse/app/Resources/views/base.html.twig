@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}ProjetBlog{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('acceuil.css') }}" />
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <header style="background: #cccc00; text-align: center">
+        <h1>Carnet d'Adresse</h1>
+    </header>
+    <div id="menu">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <ul>
+                <li> <a href="#"> Menu </a> </li>
+                <ul>
+                    <li> <a href="{{ path('carnet_adresse_homepage') }}"> Accueil </a> </li>
+                    <li> <a href="{{ path('carnet_adresse_create') }}"> Créer un carnet </a> </li>
+                    <li> <a href="{{ path('carnet_adresse_user') }}"> Mes carnets </a> </li>
+                    <li> <a href="{{ path('carnet_adresse_homepage') }}"> Tous les carnets </a> </li>
+                    <li> <a href="{{ path('fos_user_change_password') }}"> Changer mon mot de passe </a> </li>
+                    <li> <a href="{{ path('fos_user_profile_edit') }}"> Editer mon profil </a> </li>
+                    <li> <a href="{{ path('fos_user_profile_infos') }}"> Editer mes informations </a> </li>
+                </ul>
+            </ul>
+        {% endif%}
+        <div style="margin-left: 80%; margin-top: -2%">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% else %}
+               {# <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
+            {% endif %}
+        </div>
+        {% block body %}bonsoir{% endblock %}
+        
+        {% block javascripts %}
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script type="text/javascript" src="js/style-jquery.js"></script>
+        {% endblock %}
+    </div>
+    <footer style="background: #cccc00; text-align: center">
+        <h1>copyright</h1>
+    </footer>
+</body>
+</html>

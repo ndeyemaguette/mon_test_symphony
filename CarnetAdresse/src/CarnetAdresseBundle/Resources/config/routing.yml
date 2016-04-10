@@ -1,0 +1,24 @@
+carnet_adresse_homepage:
+    path:     /
+    defaults: { _controller: CarnetAdresseBundle:Default:index }
+    
+carnet_adresse_create:
+    path:     /creer-un-carnet
+    defaults: { _controller: CarnetAdresseBundle:Default:create }
+    
+carnet_adresse_user:
+    path:     /mes-carnets
+    defaults: { _controller: CarnetAdresseBundle:Default:carnetUser }
+    
+carnet_adresse_edit:
+    path:     /modifier-carnets/{id}
+    defaults: { _controller: CarnetAdresseBundle:Default:carnetEdit }
+    requirements:
+        id: \d+
+    
+carnet_adresse_delete:
+    path:     /supprimer-carnets/{id}
+    defaults: { _controller: CarnetAdresseBundle:Default:carnetDelete }
+    requirements:
+        id: \d+
+

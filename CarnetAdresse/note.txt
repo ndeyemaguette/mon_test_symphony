@@ -1,0 +1,57 @@
+http://j-place.developpez.com/tutoriels/php/creer-premiere-application-web-avec-symfony2/
+
+***** acces phpmyadmin
+https://www.residenceetudiante.fr/phpmyadmin/
+
+
+** créer un projet symfony
+
+- verifiez si symfony est cofiguré:
+  php symfony
+
+- installer symfony:
+  php symfony new Nom_du_projet
+
+- Adding a Symfony Component to your application:
+  composer require Symfony/Asset
+  composer require Symfony/ClassLoader
+
+- mettre à jour le composer
+  cpmposer
+  composer update --lock
+
+- configurer le php
+
+- créer la base de donnée
+
+- vider le cache
+
+- créer la BD
+  php app/console doctrine:database:create
+
+- lancer dans le navigateur
+   127.0.0.1/ResidenceEtudiante.fr/web/app_dev.php/
+
+- si il y a un pb de DB le forcer
+   php app/console doctrine:schema:update --dump-sql
+   php app/console doctrine:schema:update --force
+
+- supprimer le le bundle par defaut
+
+- dans le fichier appkernel dans la foction public function registerBundles()/$bundles = array, supprimer la derniere ligne
+
+- generer un bundle
+  php app/console generate:bundle
+
+- generer une entity ( pour les formulaire)
+  php app/console generate:doctrine entity
+  spécifiez lz nom du blog suivi du nom de l'entité: BlogBundle:name_entity
+  * si on modifié fait un ajout ou suppression des champs alors: php app/console generate:doctrine entity BlogBundle:name_entity
+- metre à jour ou update la BD
+  php app/console doctrine:Schema:update --dump-sql
+
+- forcer la mise à jour de la BD
+  php app/console doctrine:Schema:update --force
+
+- créer un formulaire avec la BD:
+  php app/console doctrine:generate:form Blogbundle:Post

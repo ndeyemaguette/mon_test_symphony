@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Formulaire de créartion d'un carnet</h3>
+
+    {% for type, messages in app.session.flashbag.all() %}
+    {% for message in messages %}
+        <p class="information_message">{{ message }}<p>
+    {% endfor %}
+    {% endfor %}
+    
+    <div class="well">
+        <form method="post" action="{{ path('fos_user_profile_infos') }}" {{ form_enctype(form) }}>
+            <table>
+                <tr>
+                <td align="right">{{ form_label(form.nom, "Nom") }} <span class="blue" style="color: red">*</span></td>
+                <td colspan="5">{{ form_widget(form.nom) }}</td>
+                </tr>
+                <tr><td></td><td colspan="5">{{ form_errors(form.nom) }}</td></tr>
+                
+                <tr>
+                <td align="right">{{ form_label(form.prenom, "Prenom") }} <span class="blue" style="color: red">*</span></td>
+                <td colspan="5">{{ form_widget(form.prenom) }}</td>
+                </tr>
+                <tr><td></td><td colspan="5">{{ form_errors(form.prenom) }}</td></tr>
+                
+                <tr>
+                <td align="right">{{ form_label(form.adresse, "Adresses") }} <span class="blue" style="color: red">*</span></td>
+                <td colspan="5">{{ form_widget(form.adresse) }}</td>
+                </tr>
+                <tr><td></td><td colspan="5">{{ form_errors(form.adresse) }}</td></tr>
+                
+                <tr>
+                <td align="right">{{ form_label(form.siteWeb, "Site web") }} <span class="blue" style="color: red">*</span></td>
+                <td colspan="5">{{ form_widget(form.siteWeb) }}</td>
+                </tr>
+                <tr><td></td><td colspan="5">{{ form_errors(form.siteWeb) }}</td></tr>
+                
+                <tr>
+                <td align="right">{{ form_label(form.telephone, "Telephone") }} <span class="blue" style="color: red">*</span></td>
+                <td colspan="5">{{ form_widget(form.telephone) }}</td>
+                </tr>
+                <tr><td></td><td colspan="5">{{ form_errors(form.telephone) }}</td></tr>
+                
+                <tr><td>&nbsp;</td><td colspan="5"><input type="submit" value="Valider" /></td></tr>
+                <tr><td>&nbsp;</td><td colspan="5" align="right" class="obligation"><span style="color: red">* champ obligatoire</span></td></tr>
+                <td colspan="5">{{ form_rest(form) }}</td>
+            
+            </table>
+        </form>
+    </div>
+{% endblock %}

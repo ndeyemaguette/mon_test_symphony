@@ -1,0 +1,15 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: dev
+    database_user: dev
+    database_password: Y83d7Pwv5DvpDEED
+    mailer_transport: mail
+    mailer_host: 127.0.0.1
+    mailer_user: xxxxx@gmail.com
+    mailer_password: xxxxx
+    secret: d3874db5c073cbbc435e6f2938cb19a8b1f55f4a
+    amazonaws_username: AKIAIFGHUL2EZKTBSPZA
+    amazonaws_password: Ag+/+FcfgDVplZWigGBxWYql8kmrArNC8Z9F+eqHqqgh

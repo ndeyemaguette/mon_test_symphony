@@ -1,0 +1,4 @@
+veuillez laisser ses commandes en commande prompt pour générer la base de votre coté:
+php app/console doctrine:schema:update
+php app/console doctrine:schema:update --dump-sql
+php app/console doctrine:schema:update --force
